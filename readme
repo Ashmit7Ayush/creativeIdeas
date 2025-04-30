@@ -1,0 +1,37 @@
+
+
+Functional Requirements
+    Submit Ideas --> Contributors submit creative Ideas
+    Full-Text Search --> Search ideas by title/content with fuzzy logic
+    Filter/Search --> Filter by domain, tags, author, score, etc.
+    FeedBack --> Users can comment/like on ideas
+    Popularity Engine --> Sort/Search by popularity score(likes + age factor)
+    Missing Info Filter --> Find ideas without tags or description
+    Admin DashBoard --> Analytics for top contributors, popular tags, ideas
+    Idea Drafting --> Save in-progress ideas with status = DRAFT
+
+
+Non-Functional Requirements
+    RESTFul API
+    Secure endpoints
+    Scalable (ES or searching, DB or relationships)
+    Modular, clean structure
+    Well Documented and testable
+
+
+
+APIS Flow
+    Store Searchable Content in ElasticSearch
+    Store relational user metadata in SQL(User, Role, etc)
+    Use Mongo or SQL for comment threads or feedBack
+    Use SpringBoot to unify expose clean RESTFul APIs
+    Apply ElasticSearch DSL Queries dynamically
+
+
+Module BreakDown
+    API Layer           Spring Web                  REST APIs for clients
+    Search Engine       ElasticSearch               Full-text and analysis Search
+    Relational DB       MySQL                       User Metadata, stats
+    NoSQL Layer         MongoDB                     Comments/feedBack
+    Auth Layer          Spring Security + JWT       Securing APIs
+

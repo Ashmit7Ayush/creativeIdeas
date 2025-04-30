@@ -1,0 +1,43 @@
+                +---------------------+
+                |     Client UI       |  <-- Web, Mobile, Admin Dashboard
+                +---------------------+
+                         |
+                         v
+                +---------------------+
+                |     API Gateway     |  <-- Rate limiting, Routing, Caching (e.g., Redis)
+                +---------------------+
+                         |
+                         v
+                +---------------------+
+                |  SpringBoot Backend |
+                +---------------------+
+                | - Idea Module       |
+                | - Search Module     |
+                | - Feedback Module   |
+                | - Auth Module       |
+                | - Analytics Module  |
+                | - Collaboration     |
+                +---------------------+
+                         |
+                         v
+     +---------+---------+----------+---------+
+     |         |         |          |         |
+     v         v         v          v         v
++--------+ +---------+ +--------+ +--------+ +-----------+
+| MySQL  | | MongoDB | | Elastic| | Redis  | | File Store|
+| (Users)| | (Comments| |Search | | (Cache)| | (Docs, img)|
++--------+ +---------+ +--------+ +--------+ +-----------+
+                         ^
+                         |
+                +---------------------+
+                |  ElasticSearch Sync |
+                |  (from SQL + Mongo) |
+                +---------------------+
+
+           +-------------------------------+
+           |    Monitoring / Observability |
+           | (Spring Actuator, Prometheus, |
+           |     Grafana, ELK, etc.)       |
+           +-------------------------------+
+
+

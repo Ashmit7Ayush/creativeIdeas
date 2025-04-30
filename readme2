@@ -1,0 +1,135 @@
+Creative Ideas Platform - System Design
+
+## Functional Requirements
+
+- Submit Ideas
+  Contributors submit creative ideas.
+
+- Full-Text Search
+  Search ideas by title/content using fuzzy logic via Elasticsearch.
+
+- Filter/Search
+  Filter by domain, tags, author, score, and other metadata.
+
+- Feedback
+  Users can comment and like ideas.
+
+- Popularity Engine
+  Sort/search ideas by a popularity score (likes + age factor).
+
+- Missing Info Filter
+  Find ideas missing tags or descriptions.
+
+- Admin Dashboard
+  Analytics for top contributors, most used tags, popular ideas.
+
+- Idea Drafting
+  Save in-progress ideas with status = DRAFT.
+
+- Collaboration Support (New)
+  Allow multiple users to co-author or contribute to the same idea.
+
+- Tag Suggestion System (New)
+  Auto-suggest relevant tags based on idea content using NLP.
+
+- Notification System (New)
+  Notify users of likes, comments, similar idea submissions, or updates.
+
+- Idea Versioning / History (New)
+  Maintain change history for each idea (drafts and published versions).
+
+- Gamification & Recognition (New)
+  Award badges or points for active or high-quality contributions.
+
+- Duplicate Detection (New)
+  Prevent similar idea spam by detecting and alerting on content similarity.
+
+- Approval Workflow (New - Optional)
+  Admin/moderator review before ideas are publicly published.
+
+- Export/Share Feature (New)
+  Enable idea sharing via PDF, social media, or email.
+
+- Analytics per Idea (New)
+  Track detailed idea metrics (views, likes, comments over time).
+
+
+## Non-Functional Requirements
+
+- RESTful API
+  Follow REST principles for all endpoints.
+
+- Secure Endpoints
+  Use JWT + Spring Security for authentication and role-based authorization.
+
+- Scalable
+  Elasticsearch for scalable search, and database schema for relational mapping.
+
+- Modular, Clean Structure
+  Maintain separation of concerns across modules (API, DB, search, auth, etc.).
+
+- Well Documented & Testable
+  Swagger/OpenAPI for docs; JUnit/TestContainers for automated testing.
+
+- Caching Layer (New)
+  Use Redis or similar to cache frequent queries and boost performance.
+
+- API Rate Limiting & Monitoring (New)
+  Prevent abuse with throttling; monitor usage with Prometheus/Grafana.
+
+- Logging & Observability (New)
+  Use ELK stack or similar for centralized logging and error tracing.
+
+- CI/CD Support (New)
+  Integrate Jenkins/GitHub Actions for automated testing, building, and deployment.
+
+- Localization & i18n (New)
+  Support multi-language interfaces for broader accessibility.
+
+- Accessibility (WCAG) (New)
+  Ensure UI is compliant with accessibility standards.
+
+- Data Retention Policy (New)
+  Define storage limits and auto-deletion rules for old data.
+
+- Backup & Disaster Recovery (New)
+  Scheduled backups and recovery strategy for data protection.
+
+
+## API Flow
+
+- Store Searchable Content
+  Use Elasticsearch for indexing and full-text search.
+
+- Store Relational Metadata
+  Use MySQL for user profiles, roles, idea metadata, analytics.
+
+- Store Feedback Threads
+  Use MongoDB or MySQL for comments and feedback data.
+
+- Unify API Layer
+  Spring Boot exposes unified, secure REST APIs.
+
+- Dynamic ES DSL Queries
+  Dynamically construct and execute Elasticsearch queries for filters and fuzzy logic.
+
+- Caching Layer (New)
+  Redis used to cache trending/popular ideas, frequent searches, and dashboard data.
+
+- Notification Engine (New)
+  Use event-driven architecture (e.g., RabbitMQ/Kafka) for async notifications.
+
+
+## Module Breakdown
+
+| Module              | Tech Stack                  | Description                                                  |
+|---------------------|-----------------------------|--------------------------------------------------------------|
+| API Layer           | Spring Web                  | Exposes REST APIs for all services                           |
+| Search Engine       | Elasticsearch               | Full-text, fuzzy, and filtered search                        |
+| Relational DB       | MySQL                       | User metadata, idea status, gamification points              |
+| NoSQL Layer         | MongoDB                     | Store nested comment threads, reactions                      |
+| Auth Layer          | Spring Security + JWT       | Authentication and authorization                             |
+| Caching Layer       | Redis (New)                 | Cache popular queries, leaderboard, and notifications        |
+| Notification Layer  | Kafka/RabbitMQ (New)        | Send notifications for likes/comments/collaborations        |
+| Logging/Monitoring  | ELK Stack + Prometheus (New)| Logs, metrics, error tracking, API performance insights      |
+| CI/CD               | GitHub Actions / Jenkins (New)| Continuous Integration & Deployment pipeline              |

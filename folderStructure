@@ -1,0 +1,24 @@
+creative-ideas-platform/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/creativeideas/
+│   │   │       ├── CreativeIdeasApplication.java
+│   │   │       ├── config/               # Configurations (Security, DB, Elasticsearch)
+│   │   │       ├── controller/           # REST controllers
+│   │   │       ├── dto/                  # Data Transfer Objects
+│   │   │       ├── entity/               # JPA Entities
+│   │   │       ├── repository/           # Spring Data Repositories
+│   │   │       ├── service/              # Business Logic
+│   │   │       ├── exception/            # Custom exceptions and handlers
+│   │   │       └── util/                 # Utility classes/helpers
+│   │   ├── resources/
+│   │   │   ├── application.yml           # Environment configuration
+│   │   │   └── static/                   # Web assets (if any)
+│   └── test/
+│       └── java/com/creativeideas/       # Unit and Integration Tests
+│           └── ... (mirrors main)
+├── Dockerfile
+├── docker-compose.yml                   # DB + ES + Mongo orchestration
+├── README.md
+├── pom.xml
