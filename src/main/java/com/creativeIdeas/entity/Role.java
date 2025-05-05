@@ -5,9 +5,7 @@ import lombok.*;
 
 /**
  * Stores role info like ADMIN, USER.
- *
  * @Entity maps to DB.
- *
  * @Builder, @Data (from Lombok) auto-generates boilerplate.
  */
 

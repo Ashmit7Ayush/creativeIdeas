@@ -8,7 +8,11 @@ creative-ideas-platform/
 │   │   │       ├── controller/           # REST controllers
 │   │   │       ├── dto/                  # Data Transfer Objects
 │   │   │       ├── entity/               # JPA Entities
+│   │   │       ├── document/             # MongoDB entity models (not JPA)
+│   │   │       ├── elastic/              # ES entity Models
 │   │   │       ├── repository/           # Spring Data Repositories
+│   │   │       ├── mongorepository/      # Repositories for Mongo documents
+│   │   │       ├── elasticrepository/    # Repositories for ES
 │   │   │       ├── service/              # Business Logic
 │   │   │       ├── exception/            # Custom exceptions and handlers
 │   │   │       └── util/                 # Utility classes/helpers

@@ -22,7 +22,7 @@ public class Domain {
     private Integer id;
 
     @Column(unique = true, nullable = false)
-    private String ame;
+    private String name;
 
     private String description;
 }

@@ -3,8 +3,10 @@ package com.creativeIdeas.entity;
 import lombok.*;
 import jakarta.persistence.*;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.Set;
+import java.util.UUID;
 
 /**
  * status uses enum (DRAFT, PUBLISHED, etc)
@@ -19,7 +21,7 @@ import java.util.Set;
 public class Idea {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private UUID id;
 
     @Column(nullable = false)
     private String title;
@@ -36,9 +38,11 @@ public class Idea {
     @Column(nullable = false)
     private IdeaStatus status;
 
-    private LocalDateTime createdAt;
+    private Instant createdAt;
 
-    private LocalDateTime updatedAt;
+    private Instant updatedAt;
+
+    private Instant publishedAt;
 
     private Double popularityScore;
 

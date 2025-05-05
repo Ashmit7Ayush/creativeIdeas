@@ -1,0 +1,10 @@
+Service Layer Plan
+
+Service Class	    Responsibility
+IdeaService	        Create, update, publish ideas, manage drafts
+FeedbackService	    Like/comment on ideas
+SearchService	    Trigger Elasticsearch sync, full-text/fuzzy search
+AnalyticsService	Admin-level stats, top contributors/tags
+TagService	        Manage tags, validate new tags
+DomainService	    Manage domains (Tech, Education, etc.)
+IdeaIndexService	Index published ideas to Elasticsearch, maintain ES sync from MySQL
