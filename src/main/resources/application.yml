@@ -25,6 +25,9 @@ spring:
         reactive:
           endpoints: localhost:9200
 
+  elasticsearch:
+    host: localhost
+
   jackson:
     serialization:
       write-dates-as-timestamps: false

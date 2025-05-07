@@ -8,7 +8,7 @@ import com.creativeIdeas.ideas.repository.DomainRepository;
 import com.creativeIdeas.ideas.repository.IdeaRepository;
 import com.creativeIdeas.ideas.repository.TagRepository;
 import com.creativeIdeas.ideas.repository.UserRepository;
-import com.creativeIdeas.ideas.service.IdeaIndexService;
+import com.creativeIdeas.indexing.service.IdeaIndexService;
 import com.creativeIdeas.ideas.service.IdeaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.elasticsearch.ResourceNotFoundException;
