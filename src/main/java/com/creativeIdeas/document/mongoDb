@@ -1,5 +1,4 @@
-Flexible, schema-less data (e.g. comments, nested replies)
-Fast writes and large volumes (feedback, drafts).
+Fast writes and large volumes (fdrafts).
 Dynamic content (drafts evolve often, can be saved mid-edit).
 
 'Spring Data MongoDB' similar like JPA but for MongoDB

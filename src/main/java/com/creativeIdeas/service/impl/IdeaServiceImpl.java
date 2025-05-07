@@ -76,6 +76,7 @@ public class IdeaServiceImpl implements IdeaService {
      * @throws AccessDeniedException
      */
     @Override
+    @Transactional
     public IdeaResponseDto updateIdea(UUID ideaId, IdeaRequestDto ideaDto, String userName) throws AccessDeniedException {
         Idea idea = validOwnership(ideaId, userName);
 
@@ -100,6 +101,7 @@ public class IdeaServiceImpl implements IdeaService {
      * @throws AccessDeniedException
      */
     @Override
+    @Transactional
     public IdeaResponseDto publishIdea(UUID ideaId, String userName) throws AccessDeniedException {
         Idea idea = validOwnership(ideaId, userName);
         idea.setStatus(IdeaStatus.PUBLISHED);

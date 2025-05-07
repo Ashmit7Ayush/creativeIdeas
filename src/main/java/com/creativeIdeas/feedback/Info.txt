@@ -1,0 +1,19 @@
+Submitting a comment on an idea
+
+Replying to a comment (nested comments)
+
+Liking an idea
+
+Fetching all comments for an idea (threaded structure)
+
+Fetching like count per idea
+
+
+
+com.creativeideas
+├── feedback
+│   ├── controller
+│   ├── dto
+│   ├── mongorepository
+│   ├── repository
+│   └── service
