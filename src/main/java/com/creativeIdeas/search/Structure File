@@ -1,0 +1,28 @@
+src/
+├── main/
+│   └── java/com/creativeIdeas/
+│       ├── search/
+│       │   ├── service/
+│       │   │   └── SearchService.java       <-- Search logic
+│       │   ├── dto/
+│       │   │   ├── SearchRequestDTO.java    <-- Input parameters
+│       │   │   └── SearchResultDTO.java     <-- Output result
+│       │   └── controller/
+│       │       └── SearchController.java    <-- REST API
+│       └── config/
+│           └── ElasticSearchClientConfig.java  <-- Already implemented
+
+
+Goals to achieve by search
+    Full-text search on title and content
+    Fuzzy search for misspelled terms
+    Filter by domain, tags, author, status
+    Sort by popularity_score, created_at
+
+Feature	            Field(s) to be Used	        Implementation Notes
+Full-text search	title, content	            match or multi_match query
+Fuzzy search	    title, content	            Use "fuzziness": "AUTO" in query
+Filters	            domain, tags	            Use term and terms filters
+Author filter	    author_username	            Use term filter
+Sorting	            score, time	                Use sort in query
+Pagination	        page, size	                Use from, size in request body

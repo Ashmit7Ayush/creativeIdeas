@@ -1,4 +1,4 @@
-package com.creativeIdeas.indexing.config;
+package com.creativeIdeas.config;
 
 import co.elastic.clients.elasticsearch.ElasticsearchClient;
 import co.elastic.clients.json.jackson.JacksonJsonpMapper;
