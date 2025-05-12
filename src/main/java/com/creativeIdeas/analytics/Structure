@@ -1,0 +1,29 @@
+src/
+├── main/
+│   └── java/com/creativeIdeas/
+│       ├── analytics/
+│           ├── controller/
+│           │   │   └── AnalyticsController.java
+│           │   ├── service/
+│           │   │   └── AnalyticsService.java
+│           │   ├── dto/
+│           │   │   └── AnalyticsResponseDTO.java
+│           │   ├── repository/
+│           │   │   └── CustomAnalyticsRepository.java
+│           │   │   └── impl/CustomAnalyticsRepositoryImpl.java
+
+
+
+Mainly its going to be for administration
+    Top contributors (users with most ideas)
+    Most popular tags
+    Most active domains
+    Recent idea activity trends (last N days)
+    Most liked ideas
+
+
+Data fetching
+    Aggregations from MySQL (for users, tags, idea count)
+    Aggregations from MongoDB (likes, comments count)
+    Time-based trends (e.g., ideas per day)
+    Domain distribution
