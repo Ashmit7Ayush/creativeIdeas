@@ -1,10 +1,12 @@
 package com.creativeIdeas.ideas.service.impl;
 
+import com.creativeIdeas.domain.entity.Domain;
+import com.creativeIdeas.domain.service.DomainService;
 import com.creativeIdeas.ideas.dto.IdeaRequestDto;
 import com.creativeIdeas.ideas.dto.IdeaResponseDto;
 import com.creativeIdeas.ideas.entity.*;
 import com.creativeIdeas.ideas.mapper.IdeaMapper;
-import com.creativeIdeas.ideas.repository.DomainRepository;
+import com.creativeIdeas.domain.repository.DomainRepository;
 import com.creativeIdeas.ideas.repository.IdeaRepository;
 import com.creativeIdeas.ideas.repository.UserRepository;
 import com.creativeIdeas.indexing.service.IdeaIndexService;
@@ -35,6 +37,7 @@ public class IdeaServiceImpl implements IdeaService {
     private final IdeaMapper ideaMapper;
     private final IdeaIndexService ideaIndexService;
     private final TagService tagService;
+    private final DomainService domainService;
 
     /**
      * Validates user + domain + tags, saves in DRAFT
@@ -45,7 +48,9 @@ public class IdeaServiceImpl implements IdeaService {
     @Override
     @Transactional
     public IdeaResponseDto createIdea(IdeaRequestDto ideaDto, String userName) {
+        // validating tags and domain
         tagService.validateTags(ideaDto.getTags());
+        domainService.validateDomain(ideaDto.getDomain());
 
         User user = userRepository.findByUsername(userName).orElseThrow(() ->
                 new ResourceNotFoundException("User not found"));

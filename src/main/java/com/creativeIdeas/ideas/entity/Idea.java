@@ -1,5 +1,6 @@
 package com.creativeIdeas.ideas.entity;
 
+import com.creativeIdeas.domain.entity.Domain;
 import com.creativeIdeas.tags.entity.Tag;
 import lombok.*;
 import jakarta.persistence.*;

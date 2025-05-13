@@ -1,4 +1,4 @@
-package com.creativeIdeas.ideas.entity;
+package com.creativeIdeas.domain.entity;
 
 import lombok.*;
 import jakarta.persistence.*;
@@ -24,5 +24,6 @@ public class Domain {
     @Column(unique = true, nullable = false)
     private String name;
 
+    @Column(length = 255)
     private String description;
 }
