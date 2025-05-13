@@ -6,10 +6,12 @@ import com.creativeIdeas.ideas.entity.*;
 import com.creativeIdeas.ideas.mapper.IdeaMapper;
 import com.creativeIdeas.ideas.repository.DomainRepository;
 import com.creativeIdeas.ideas.repository.IdeaRepository;
-import com.creativeIdeas.ideas.repository.TagRepository;
 import com.creativeIdeas.ideas.repository.UserRepository;
 import com.creativeIdeas.indexing.service.IdeaIndexService;
 import com.creativeIdeas.ideas.service.IdeaService;
+import com.creativeIdeas.tags.entity.Tag;
+import com.creativeIdeas.tags.repository.TagRepository;
+import com.creativeIdeas.tags.service.TagService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.elasticsearch.ResourceNotFoundException;
 import org.springframework.stereotype.Service;
@@ -32,6 +34,7 @@ public class IdeaServiceImpl implements IdeaService {
     private final TagRepository tagRepository;
     private final IdeaMapper ideaMapper;
     private final IdeaIndexService ideaIndexService;
+    private final TagService tagService;
 
     /**
      * Validates user + domain + tags, saves in DRAFT
@@ -42,6 +45,8 @@ public class IdeaServiceImpl implements IdeaService {
     @Override
     @Transactional
     public IdeaResponseDto createIdea(IdeaRequestDto ideaDto, String userName) {
+        tagService.validateTags(ideaDto.getTags());
+
         User user = userRepository.findByUsername(userName).orElseThrow(() ->
                 new ResourceNotFoundException("User not found"));
 
@@ -137,7 +142,7 @@ public class IdeaServiceImpl implements IdeaService {
      */
     private Idea validOwnership(UUID id, String username) throws AccessDeniedException {
         return ideaRepository.findById(id)
-                .filter(i -> i.getAuthor().getUserName().equals(username))
+                .filter(i -> i.getAuthor().getUsername().equals(username))
                 .orElseThrow(() -> new AccessDeniedException("Not Valid User"));
     }
 }

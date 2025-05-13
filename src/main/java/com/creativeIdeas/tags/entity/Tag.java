@@ -1,4 +1,4 @@
-package com.creativeIdeas.ideas.entity;
+package com.creativeIdeas.tags.entity;
 
 import lombok.*;
 import jakarta.persistence.*;
